@@ -45,6 +45,13 @@
 									</ul>
 								</li>
 								<li>
+									<a href="#"><i class="icon-store2"></i> <span>Kesling Tempat Pengelolaan Makanan (TPM)</span></a>
+									<ul>
+										<li><a href="<?= base_url('kestpm/register')?>">Register Inspeksi Kesling Tempat Pengelolaan Makanan</a></li>
+										<li><a href="<?= base_url('kestpm')?>">Daftar Laporan Inspeksi Kesling Tempat Pengelolaan Makanan</a></li>
+									</ul>
+								</li>
+								<li>
 									<a href="#"><i class="icon-collaboration"></i> <span>Bina Desa Sanitasi (STBM)</span></a>
 									<ul>
 										<li><a href="<?= base_url('stbm/register')?>">Register Bina Desa Sanitasi Total Berbasis Masyarakat </a></li>
@@ -66,8 +73,8 @@
 										<li><a href="<?= base_url('penilaianresiko')?>">Data Penilaian Resiko</a></li>
 									</ul>
 								</li>
-								<li><a href="<?= base_url('katttu')?>"><i class="icon-archive"></i> <span>Data Kategori TTU</span></a></li>
-								<li><a href="<?= base_url('kattpm')?>"><i class="icon-books"></i> <span>Data Kategori TPM</span></a></li>
+								<li><a href="<?= base_url('kategorittu')?>"><i class="icon-archive"></i> <span>Data Kategori TTU</span></a></li>
+								<li><a href="<?= base_url('kategoritpm')?>"><i class="icon-books"></i> <span>Data Kategori TPM</span></a></li>
 								<li><a href="<?= base_url('petugas')?>"><i class="icon-users"></i> <span>Data Petugas</span></a></li>
 								
 								<!-- /Menu Master -->

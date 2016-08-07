@@ -11,7 +11,7 @@ class M_kesttu extends CI_Model {
 
 	function autoNoKesTtu()
 	{
-		$unikkode = 'IT-'.date('Y');
+		$unikkode = 'ITU-'.date('Y');
 		$qry = $this->db->query("SELECT MAX(RIGHT(IdKesTtu,4)) AS KodeAkhir FROM tbkes_ttu_master WHERE IdKesTtu like '$unikkode%'");
 		if ($qry->num_rows() > 0){
 			$nextCode = $qry->row('KodeAkhir') + 1;
@@ -45,6 +45,7 @@ class M_kesttu extends CI_Model {
 						->join('tbkes_ttu_kategori k', 'm.IdKategoriTtu = k.IdKategoriTtu')
 						->join('tbkelurahan l', 'm.IdKelurahan = l.IdKelurahan')
 						->join('tbpetugas p', 'p.IdPetugas = m.IdPetugas')
+						->where('m.IdPuskesmas', $IdPuskesmas)
 						->get();
 		if ($qry->num_rows() > 0){
 			return $qry->result();
@@ -55,7 +56,7 @@ class M_kesttu extends CI_Model {
 
 	function hapusRegister($id)
 	{
-		$detil = $this->db->db->where('IdKesTtu', $id)->delete('tbkes_ttu_detil');
+		$detil = $this->db->where('IdKesTtu', $id)->delete('tbkes_ttu_detil');
 		if ($detil){
 			$qry = $this->db->where('IdKesTtu', $id)->delete('tbkes_ttu_master');
 			if ($qry){
@@ -66,8 +67,6 @@ class M_kesttu extends CI_Model {
 		}else{
 			return false;
 		}
-		
-
 	}
 
 }

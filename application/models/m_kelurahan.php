@@ -4,9 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_kelurahan extends CI_Model {
 
 	function getAll(){
-		$data = $this->db->select('l.*, k.NamaKecamatan')
+		$data = $this->db->select('l.*, k.NamaKecamatan, p.NamaPetugas')
 					 ->from('tbkelurahan l')
 					 ->join('tbkecamatan k', 'l.IdKecamatan = k.IdKecamatan')
+					 ->join('tbpetugas p', 'l.IdPetugas = p.IdPetugas')
 					 ->group_by('l.IdKelurahan')
 					 ->get();
 		if ($data->num_rows() > 0) {

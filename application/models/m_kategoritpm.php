@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_kategorittu extends CI_Model {
+class M_kategoritpm extends CI_Model {
 
 	function __construct()
 	{
@@ -12,7 +12,7 @@ class M_kategorittu extends CI_Model {
 	function getAll()
 	{
 		$data = $this->db->select('kategori.*, petugas.NamaPetugas')
-						 ->from('tbkes_ttu_kategori kategori')
+						 ->from('tbkes_tpm_kategori kategori')
 						 ->join('tbpetugas petugas', 'kategori.IdPetugas = petugas.IdPetugas')
 						 ->get();
 		if ($data->num_rows() > 0) {
@@ -27,8 +27,8 @@ class M_kategorittu extends CI_Model {
 	function getById($id)
 	{
 		$data = $this->db->select('*')
-						 ->from('tbkes_ttu_kategori')
-						 ->where('IdKategoriTtu', $id)
+						 ->from('tbkes_tpm_kategori')
+						 ->where('IdKategoriTpm', $id)
 						 ->get();
 		if ($data->num_rows() > 0) {
 			return $data->row();
@@ -41,29 +41,29 @@ class M_kategorittu extends CI_Model {
 
 	function simpan($data)
 	{
-		$cek = $this->db->select('KategoriTtu')
-						->from('tbkes_ttu_kategori')
-						->where('KategoriTtu', $data['KategoriTtu'])
+		$cek = $this->db->select('KategoriTpm')
+						->from('tbkes_tpm_kategori')
+						->where('KategoriTpm', $data['KategoriTpm'])
 						->get();
 		if ($cek->num_rows() > 0){
 			return 'sama';
 		}else{
-			$result = $this->db->insert('tbkes_ttu_kategori', $data);
+			$result = $this->db->insert('tbkes_tpm_kategori', $data);
 			return $result;
 		}
 	}
 
 	function rubah($data, $id)
 	{
-		$cek = $this->db->select('KategoriTtu')
-						->from('tbkes_ttu_kategori')
-						->where('KategoriTtu', $data['KategoriTtu'])
-						->where('IdKategoriTtu !=', $id)
+		$cek = $this->db->select('KategoriTpm')
+						->from('tbkes_tpm_kategori')
+						->where('KategoriTpm', $data['KategoriTpm'])
+						->where('IdKategoriTpm !=', $id)
 						->get();
 		if ($cek->num_rows() > 0){
 			return 'sama';
 		}else{
-			$result = $this->db->where('IdKategoriTtu', $id)->update('tbkes_ttu_kategori', $data);
+			$result = $this->db->where('IdKategoriTpm', $id)->update('tbkes_tpm_kategori', $data);
 			return $result;
 		}
 	}
@@ -72,12 +72,11 @@ class M_kategorittu extends CI_Model {
 
 	function hapus($id)
 	{
-		$qry = $this->db->where('IdKategoriTtu', $id)->delete('tbkes_ttu_kategori');
+		$qry = $this->db->where('IdKategoriTpm', $id)->delete('tbkes_tpm_kategori');
 		return $qry;
 	}
-	
 
 }
 
-/* End of file m_kategorittu.php */
-/* Location: ./application/models/m_kategorittu.php */
+/* End of file m_kategoritpm.php */
+/* Location: ./application/models/m_kategoritpm.php */

@@ -63,12 +63,12 @@
 										?>
 											<tr>
 												<td></td>
-												<td><?= $no ?></td>
-												<td><?= $data->NamaKecamatan ?></td>
-												<td><?= $data->NamaKelurahan ?></td>
-												<td><?= date_format(date_create($data->TglBuat), 'd, F Y') ?></td>
-												<td><?= $data->IdUser ?></td>
-												<td class="text-center">
+												<td width="5%"><?= $no ?></td>
+												<td width="25%"><?= $data->NamaKecamatan ?></td>
+												<td width="25%"><?= $data->NamaKelurahan ?></td>
+												<td width="15%"><?= date_format(date_create($data->TglBuat), 'd, F Y') ?></td>
+												<td width="20%"><?= $data->NamaPetugas ?></td>
+												<td width="10%" class="text-center">
 													<ul class="icons-list">
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown">
