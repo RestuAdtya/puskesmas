@@ -153,6 +153,16 @@ class KesTpm extends CI_Controller {
 		}
 	}
 
+	public function lihatDetil()
+	{
+		$data = array(
+			'dMaster' => $this->m_kestpm->getMaster($this->input->post('id')),
+			'dParameter' => $this->m_kestpm->getDetil($this->input->post('id'))
+		);
+
+		$this->load->view('page/kestpm/modalDetilKesTpm', $data);
+	}
+
 }
 
 /* End of file KesTpm.php */

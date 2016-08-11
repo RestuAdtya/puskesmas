@@ -41,7 +41,7 @@
 
 
 	<script type="text/javascript" src="<?= base_url('assets/js/plugins/forms/validation/validate.min.js')?>"></script>
-
+	<script type="text/javascript" src="<?= base_url('assets/js/plugins/pickers/anytime.min.js')?>"></script>
 	<script type="text/javascript" src="<?= base_url('assets/js/core/app.js')?>"></script>
 	<script type="text/javascript" src="<?= base_url('assets/js/pages/layout_fixed_custom.js')?>"></script>
 	<script type="text/javascript" src="<?= base_url('assets/js/pages/datatables_responsive.js')?>"></script>

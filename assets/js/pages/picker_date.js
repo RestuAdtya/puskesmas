@@ -22,4 +22,13 @@ $(function() {
         dateFormat: "MM yy"
     });
 
+    $('#KeteranganTanggal').datepicker({
+        dateFormat: "dd MM yy",
+        showOtherMonths: true,
+        selectOtherMonths: true
+    });
+
+    $(".watch").AnyTime_picker({
+        format: "%H:%i"
+    });
 });

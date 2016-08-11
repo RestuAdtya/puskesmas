@@ -52,6 +52,14 @@
 									</ul>
 								</li>
 								<li>
+									<a href="#"><i class="icon-home9"></i> <span>Kesling Klinik Sanitasi</span></a>
+									<ul>
+										<li><a href="<?= base_url('kesklinik/registrasi')?>">Registrasi Klinik Sanitasi</a></li>
+										<li><a href="<?= base_url('kesklinik/konseling')?>">Konseling Klinik Sanitasi</a></li>
+										<li><a href="<?= base_url('kesklinik')?>">Daftar Klien Klinik Sanitasi</a></li>
+									</ul>
+								</li>
+								<li>
 									<a href="#"><i class="icon-collaboration"></i> <span>Bina Desa Sanitasi (STBM)</span></a>
 									<ul>
 										<li><a href="<?= base_url('stbm/register')?>">Register Bina Desa Sanitasi Total Berbasis Masyarakat </a></li>

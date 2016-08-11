@@ -69,6 +69,27 @@ class M_kesttu extends CI_Model {
 		}
 	}
 
+	function getMaster($id)
+	{
+		$data = $this->db->select('master.*, kelurahan.NamaKelurahan, kategori.KategoriTtu')
+						 ->from('tbkes_ttu_master master')
+						 ->join('tbkelurahan kelurahan', 'master.IdKelurahan = kelurahan.IdKelurahan')
+						 ->join('tbkes_ttu_kategori kategori', 'master.IdKategoriTtu = kategori.IdKategoriTtu')
+						 ->where('master.IdKesTtu', $id)
+						 ->get();
+		return $data->row();
+	}
+
+	function getDetil($id)
+	{
+		$data = $this->db->select('detil.*, parameter.ParameterInspeksi')
+						 ->from('tbkes_ttu_detil detil')
+						 ->join('tbkes_parameter_inspeksi parameter', 'detil.IdParameter = parameter.IdParameter')
+						 ->where('detil.IdKesTtu', $id)
+						 ->get();
+		return $data->result();
+	}
+
 }
 
 /* End of file m_kesttu.php */

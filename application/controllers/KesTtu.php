@@ -114,6 +114,16 @@ class KesTtu extends CI_Controller {
 		}
 	}
 
+	public function lihatDetil()
+	{
+		$data = array(
+			'dMaster' => $this->m_kesttu->getMaster($this->input->post('id')),
+			'dParameter' => $this->m_kesttu->getDetil($this->input->post('id'))
+		);
+
+		$this->load->view('page/kesttu/modalDetilKesTtu', $data);
+	}
+
 }
 
 /* End of file KesTtu.php */

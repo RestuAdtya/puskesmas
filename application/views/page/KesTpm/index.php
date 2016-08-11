@@ -32,7 +32,7 @@
 		                	</div>
 						</div>
 						<div class="panel-heading" style="margin-top:-20px;">
-							<a href="<?=base_url('kesttu/register')?>"><button type="button" class="btn bg-teal-400 btn-labeled"><b><i class="icon-add"></i></b> Buat Inspeksi</button></a>
+							<a href="<?=base_url('kestpm/register')?>"><button type="button" class="btn bg-teal-400 btn-labeled"><b><i class="icon-add"></i></b> Buat Inspeksi</button></a>
 						</div>
 						<table class="table datatable-responsive-row-control">
 							<thead>
@@ -98,7 +98,7 @@
 				<script type="text/javascript">
 					function showModal(index){
 
-	                	$.post('<?= base_url(); ?>kessam/lihatDetil', {id:index} , function(mod) {
+	                	$.post('<?= base_url(); ?>kestpm/lihatDetil', {id:index} , function(mod) {
 	                		$('#modal_target').html(mod);
 	                		$('#modalForm').modal({show: true , backdrop : true , keyboard: true});
 	                	});

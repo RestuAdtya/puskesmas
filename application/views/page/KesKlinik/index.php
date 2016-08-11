@@ -32,48 +32,47 @@
 		                	</div>
 						</div>
 						<div class="panel-heading" style="margin-top:-20px;">
-							<a href="<?=base_url('kesttu/register')?>"><button type="button" class="btn bg-teal-400 btn-labeled"><b><i class="icon-add"></i></b> Buat Inspeksi</button></a>
+							<a href="<?=base_url('kesklinik/registrasi')?>"><button type="button" class="btn bg-teal-400 btn-labeled"><b><i class="icon-add"></i></b> Registrasi Klien</button></a>
 						</div>
 						<table class="table datatable-responsive-row-control">
 							<thead>
 								<tr>
 									<th></th>
-									<th  class="text-center">No</th>
-									<th  class="text-center">Inspeksi</th>
-									<th  class="text-center">Kelurahan</th>
-									<th  class="text-center">Kategori TTU</th>
-									<th  class="text-center">Tempat</th>
-									<th  class="text-center">Diperiksa</th>
-									<th  class="text-center">Petugas</th>
-									<th  class="text-center">Aksi</th>
+									<th width="2%" class="text-center">No</th>
+									<th width="15%" class="text-center">Klien</th>
+									<th width="20%" class="text-center">Nama KK</th>
+									<th width="10%" class="text-center">JK</th>
+									<th width="35%" class="text-center">Alamat</th>
+									<th width="10%" class="text-center">Golongan</th>
+									<th class="text-center" width="2%">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
-									if (!empty($dInspeksi)){
-										$no = 0;
-										foreach ($dInspeksi as $data) {
-										$no ++;
+									$no = 0;
+									if (!empty($dKlinik)){
+										foreach ($dKlinik as $data) {
+											$no ++;
 										?>
-											<tr style="font-size:10px;">
+											<tr>
 												<td></td>
-												<td width="2%" class="text-center" title="<?= $data->IdKesTtu ?>"><?= $no?></td>
-												<td width="15%"><?= date_format(date_create($data->TglKesTtu), 'd F Y') ?></td>
-												<td width="10%"><?= $data->NamaKelurahan ?></td>
-												<td width="20%"><?= substr($data->KategoriTtu,0,25) ?></td>
-												<td width="25%"><?= substr($data->NamaTempatUmum,0,25) ?></td>
-												<td width="10%"><?= $data->JumlahDiperiksa." dari ".$data->JumlahTtu ?></td>
-												<td width="16%"><?= $data->NamaPetugas ?></td>
-												<td width="2%" class="text-center" style="position:absolute" >
+												<td class="text-center" title="<?= $data->NoIndeksKlien ?>"> <?= $no ?></td>
+												<td class="text-left"><?= $data->NamaKlien ?></td>
+												<td class="text-left"><?= $data->NamaKK ?></td>
+												<td><?= $data->JenisKelamin ?></td>
+												<td class="text-left" style="font-size:10px"><?= $data->AlamatKlien." Rt/Rw. ".$data->RtRwKlien.", ".$data->DusunKlien." Desa ".$data->NamaKelurahan ?></td>
+												<td class="text-left"><?= $data->GolonganKlien ?></td>
+												<td class="text-center" style="position:absolute" >
 													<ul class="icons-list">
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 																<i class="icon-menu9"></i>
 															</a>
-
 															<ul class="dropdown-menu dropdown-menu-right">
-																<li><a href="#" data-toggle="modal" onclick="showModal('<?=$data->IdKesTtu ?>')" data-id="<?= $data->IdKesTtu ;?>" ><i class="icon-profile text-primary-600"></i> Lihat detil</a></li>
-																<li><a href="#" onclick="konfirmasi(<?= "'Hapus Inspeksi ?','Hapus inspeksi, atas nama ".$data->NamaTempatUmum."','".$data->IdKesTtu."','".base_url('kesttu/hapusRegister')."'";?>);"><i class="icon-trash text-danger-600"  ></i> Hapus data</a></li>
+																<li><a href="#" data-toggle="modal" onclick="showModal('<?=$data->NoIndeksKlien ?>')" data-id="<?= $data->NoIndeksKlien ;?>" ><i class="icon-profile text-primary-600"></i> Lihat detil</a></li>
+																<li><a href="<?= base_url('kesklinik/konseling').'/'.$data->NoIndeksKlien ?>" ><i class="icon-quill4 text-primary-600"></i> Tambah Konseling</a></li>
+																<li><a href="<?= base_url('kesklinik/registrasi').'/'.$data->NoIndeksKlien ?>" ><i class="icon-pencil text-primary-600"></i> Rubah data</a></li>
+																<li><a href="#" onclick="konfirmasi(<?= "'Hapus Klien Klinik ?','Atas nama ".$data->NamaKlien."','".$data->NoIndeksKlien."','".base_url('kesklinik/hapusKlien')."'";?>);"><i class="icon-trash text-danger-600"  ></i> Hapus data</a></li>
 															</ul>
 														</li>
 													</ul>
@@ -93,11 +92,9 @@
 					<!-- /footer -->
 
 				</div>
-
 				<script type="text/javascript">
 					function showModal(index){
-
-	                	$.post('<?= base_url(); ?>kesttu/lihatDetil', {id:index} , function(mod) {
+	                	$.post('<?= base_url('kesklinik/lihatDetil'); ?>', {id:index} , function(mod) {
 	                		$('#modal_target').html(mod);
 	                		$('#modalForm').modal({show: true , backdrop : true , keyboard: true});
 	                	});
